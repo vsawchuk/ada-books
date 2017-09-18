@@ -1,0 +1,18 @@
+<h1>List of Books</h1>
+<ul>
+<% @books.each do |book| %>
+  <li>Title:
+        <strong>
+          <%= link_to(book[:title], book_path(book[:id]), alt: 'link to', class: "title") %>
+        </strong>
+  </li>
+  <li>Author:
+    <strong><%= book[:author] %></strong>
+  </li>
+<% end %>
+</ul>
+<p>
+  <!-- <% if rand(100) % 2 == 0 %>
+    <%= "This is in uppercase!".upcase %>
+  <% end %> -->
+</p>
