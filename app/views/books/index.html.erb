@@ -3,11 +3,11 @@
 <% @books.each do |book| %>
   <li>Title:
         <strong>
-          <%= link_to(book[:title], book_path(book[:id]), alt: 'link to', class: "title") %>
+          <%= link_to(book.title, book_path(book.id), alt: 'link to', class: "title") %>
         </strong>
   </li>
   <li>Author:
-    <strong><%= book[:author] %></strong>
+    <strong><%= book.author %></strong>
   </li>
 <% end %>
 </ul>

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root to: 'books#index'
+
   get '/books', to: 'books#index', as: 'books' # books_path
 
 
@@ -12,6 +15,10 @@ Rails.application.routes.draw do
   patch '/books/:id', to: 'books#update', as: 'update_book' # update_book_path
 
   post '/books', to: 'books#create', as: 'create_book' # create_book_path
+
+  # patch '/tasks/:id/mark_complete', to: 'tasks#mark_complete'
+
+
 
   delete '/books/:id', to: 'books#destroy', as: 'delete_book' # delete_book_path
 
