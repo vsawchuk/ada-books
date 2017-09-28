@@ -1,9 +1,13 @@
 <h1>List of Books</h1>
+<%# image_tag "GnomeWizardGuy.gif", alt: "Gnome Wizard Guy", class: "user" %>
+<%# link_to image_tag("https://fillmurray.com/300/300", alt: "test image"), "http://www.google.com"  %>
 <ul>
 <% @books.each do |book| %>
   <li>Title:
         <strong>
           <%= link_to(book.title, book_path(book.id), alt: 'link to', class: "title") %>
+          <%= link_to("Delete", delete_book_path(book.id)) %>
+          <%= link_to("Edit", edit_book_path(book.id)) %>
         </strong>
   </li>
   <li>Author:

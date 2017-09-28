@@ -23,12 +23,17 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @book = Book.find_by(id: params[:id].to_i)
+
+    unless @book
+      redirect_to root_path
+    end
   end
 
-  def update
-  end
+
 
   def new
+    @book = Book.new
   end
 
   def create
@@ -36,4 +41,25 @@ class BooksController < ApplicationController
 
   def destroy
   end
+
+  def update
+    book = Book.find_by(id: params[:id].to_i)
+    redirect_to books_path unless book
+
+    if book.update_attributes book_params
+      redirect_to books_path
+    else
+      render :edit
+    end
+  end
+  private
+    def book_params
+      return params.require(:book).permit(:title, :author, :description, :price)
+    end
+
+
+
+
+
+
 end
