@@ -6,8 +6,8 @@
   <li>Title:
         <strong>
           <%= link_to(book.title, book_path(book.id), alt: 'link to', class: "title") %>
-          <%= link_to("Delete", delete_book_path(book.id)) %>
           <%= link_to("Edit", edit_book_path(book.id)) %>
+          <%= link_to("Delete", delete_book_path(book.id), method: :delete) %>
         </strong>
   </li>
   <li>Author:

@@ -1,0 +1,12 @@
+<h2>In the partial _form</h2>
+
+<%= form_for @book do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+
+  <%= f.submit action_label %>
+
+<% end %>
