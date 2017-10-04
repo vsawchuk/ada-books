@@ -31,10 +31,10 @@ class BooksController < ApplicationController
   end
 
   def update
-    book = Book.find_by(id: params[:id])
-    redirect_to books_path unless book
+    @book = Book.find_by(id: params[:id])
+    redirect_to books_path unless @book
 
-    if book.update_attributes book_params
+    if @book.update_attributes book_params
       redirect_to books_path
     else
       render :edit
@@ -48,8 +48,8 @@ class BooksController < ApplicationController
   end
 
   def create
-    book = Book.new book_params
-    if book.save
+    @book = Book.new book_params
+    if @book.save
       redirect_to root_path
     else
       render :new
