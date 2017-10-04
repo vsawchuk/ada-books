@@ -5,8 +5,14 @@ class BooksController < ApplicationController
   #   {id: 3, title: "The Girl with the Dragon Tatoo", author: "Stieg Larsson"}]
 
   def index
-    # .all would also work, just unsorted
-    @books  = Book.order(:title)
+    # if genre_id on params is truthy
+    if params[:genre_id]
+      genre = Genre.find_by(id: params[:genre_id])
+      @books = genre.books
+    # else there is no given genre_id on params, meaning we're not on a genres path
+    else
+      @books  = Book.order(:title)
+    end
   end
 
   def show
