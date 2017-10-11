@@ -56,8 +56,10 @@ class BooksController < ApplicationController
   def create
     @book = Book.new book_params
     if @book.save
+      flash[:success] = "Book added successfully"
       redirect_to root_path
     else
+      flash.now[:error] = "Book not added successfully"
       render :new
     end
   end
