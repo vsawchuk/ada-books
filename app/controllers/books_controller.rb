@@ -41,7 +41,7 @@ class BooksController < ApplicationController
     redirect_to books_path unless @book
 
     if @book.update_attributes book_params
-      redirect_to books_path
+      redirect_to root_path
     else
       render :edit
     end

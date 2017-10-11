@@ -1,9 +1,5 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  author: MyString
-
-two:
-  title: MyString
-  author: MyString
+book_one:
+  title: if on a winter's night a traveler
+  author: italo_calvino
