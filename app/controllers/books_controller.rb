@@ -17,8 +17,11 @@ class BooksController < ApplicationController
 
   def show
 
-    @book = Book.find( params[:id].to_i )
+    @book = Book.find_by(id: params[:id].to_i )
 
+    unless @book
+      render_404
+    end
     # id = params[:id].to_i
     # @book = nil
     # BOOKS.each do |book|
@@ -71,6 +74,10 @@ class BooksController < ApplicationController
   end
 
   private
+
+  def render_404
+    render file: "/public/404.html", status: 404
+  end
 
     def book_params
       return params.require(:book).permit(:title, :author_id, :description, :price)
